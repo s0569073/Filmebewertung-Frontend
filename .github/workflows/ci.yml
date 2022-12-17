@@ -1,4 +1,4 @@
-name: JavaScript CI with npm
+name: CI
 
 on: [ push ]
 
