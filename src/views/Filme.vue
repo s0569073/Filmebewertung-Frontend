@@ -10,7 +10,7 @@
                     <h5 class="card-title">{{ film.filmName }}</h5>
                     <h6 class="card-title">Bewertung: {{ film.bewertung }}</h6>
                     <p class="card-text">{{film.kommentar}}</p>
-                    <h7 class="card-title">Bewertet von {{ film.bewerter }}</h7>
+                    <h6 class="card-title">Bewertet von {{ film.bewerter }}</h6>
                   </div>
                 </div>
               </div>
@@ -26,15 +26,23 @@ export default {
   data() {
     return {
       filme: [
-        {
-          id: 1,
-          filmName: "Beispielfilm",
-          bewertung: 50,
-          kommentar: "Ist OK",
-          bewerter: "Mustermann"
-        }
+
       ]
     }
+  },
+
+  mounted () {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('http://localhost:8080/api/v1/filme', requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(filme =>{
+        this.filme.push(filme)
+      }))
+      .catch(error => console.log('error', error))
   }
 }
 </script>
