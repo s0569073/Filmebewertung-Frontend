@@ -1,36 +1,26 @@
 <template>
   <h1>Herzlich Willkommen bei den Filmen</h1>
   <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col" v-for="film in filme" :key="film.id">
-              <div class="col">
-                <div class="card">
-                  <img src="@/assets/default.png" height="50" width="50" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ film.filmName }}</h5>
-                    <h6 class="card-title">Bewertung: {{ film.bewertung }}</h6>
-                    <p class="card-text">{{film.kommentar}}</p>
-                    <h6 class="card-title">Bewertet von {{ film.bewerter }}</h6>
-                  </div>
-                </div>
-              </div>
-      </div>
-    </div>
+    <film-card-list :filme="this.filme"></film-card-list>
   </div>
-
+  <film-create-form></film-create-form>
 </template>
 
 <script>
+import FilmCardList from '@/components/FilmCardList'
+import FilmCreateForm from '@/components/FilmCreateForm'
+
 export default {
   name: 'FilmeView',
+  components: {
+    FilmCreateForm,
+    FilmCardList
+  },
   data() {
     return {
-      filme: [
-
-      ]
+      filme: []
     }
   },
-
   mounted () {
     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/filme'
     const requestOptions = {
