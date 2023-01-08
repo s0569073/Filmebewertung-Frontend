@@ -1,6 +1,6 @@
 <template>
   <div class="Card h-100">
-    <img src="@/assets/default.png" height="50" width="50" class="card-img-top">
+    <img src="@/assets/default.png" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{ film.filmName }}</h5>
       <h6 class="card-title">Bewertung: {{ film.bewertung }}</h6>

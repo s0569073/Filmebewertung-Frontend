@@ -22,8 +22,13 @@
         <label for="bewerter" class="form-label">Bewertet von</label>
         <input type="text" class="form-control" id="bewerter" v-model="bewerter" placeholder="Bitte Ihren Namen eintragen">
       </div>
+      <div class="mb-3">
+        <img src="previewImage" class="uploading-image" />
+        <input type="file" accept="image/jpeg" @change="uploadImage">
+      </div>
     </div>
     <div class="mt-5">
+
       <button class="btn btn-primary me-3" type="submit" @click="createFilm">Create</button>
       <button class="btn btn-danger" type="reset">Reset</button>
     </div>
@@ -64,9 +69,19 @@ export default {
 
       fetch(endpoint, requestOptions)
         .catch(error => console.log('error', error));
+    },
+    uploadImage(e){
+      const image = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = e =>{
+        this.previewImage = e.target.result;
+        console.log(this.previewImage);
+      }
     }
   }
 }
+
 </script>
 
 <style scoped>

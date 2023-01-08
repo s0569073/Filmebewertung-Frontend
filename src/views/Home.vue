@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Hallo Welt"/>
+    <HelloWorld msg="Filmebewertung"/>
+    <img alt="Vue logo" src="../assets/startseite.jpg" height="500" width="1000">
   </div>
 </template>
 

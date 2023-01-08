@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <HelloWorld msg="Dies ist mein Projekt, in dem ich es ermögliche eure Lieblingsfilme zu bewerten."/>
+    <HelloWorld msg="Dies ist mein Projekt, in dem ich es ermögliche eure Lieblingsfilme zu bewerten und sich Bewertungen von anderen anzusehen."/>
   </div>
 </template>
 
